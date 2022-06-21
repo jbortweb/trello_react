@@ -1,16 +1,30 @@
 import './App.css';
+import { Component } from 'react';
 import TrelloList from './components/TrelloList/TrelloList.jsx';
 import Header from './components/Header/Header.jsx';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div>
-      <div className='cabecera'>
-        <Header/>
+
+class App extends Component{
+  render() {  
+    const {lists} = this.props;
+    return (
+      <div>
+        <div className='cabecera'>
+          <Header/>
+        </div>
+          <div className='panel'>
+          {lists.map(list => (
+          <TrelloList title= {list.title} cards = {list.cards}/>
+          ))}
+        </div>
       </div>
-      <TrelloList title= {'Hola que tal'}/>
-    </div>
-  );
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  lists: state.lists
+});
+
+export default connect (mapStateToProps)(App);

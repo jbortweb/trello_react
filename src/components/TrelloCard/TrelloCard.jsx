@@ -1,10 +1,10 @@
 import React from 'react';
 import './TrelloCard.scss';
 
-const TrelloCard = () => {
+const TrelloCard = ({text}) => {
   return (
     <div className='cartascss'>
-        TrelloCard
+        {text}
     </div>
   )
 }
