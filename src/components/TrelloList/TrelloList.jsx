@@ -9,7 +9,7 @@ const TrelloList = ({title, cards}) => {
                 {title}
             </h4>
             <div>
-                {cards.map(card => <TrelloCard text={card.text}/>)}
+                {cards.map(card => <TrelloCard text={card.text} key={card.id}/>)}
             </div>
         </div>
     )
