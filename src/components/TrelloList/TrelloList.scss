@@ -2,7 +2,7 @@
 
 .container {
     background-color: $GrisFondo;
-    width: 300px;
+    min-width: 300px;
     margin: 1em;
     padding:10px;
     box-shadow: 0px 2px $Shadow;

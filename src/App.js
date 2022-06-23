@@ -3,11 +3,11 @@ import { Component } from 'react';
 import TrelloList from './components/TrelloList/TrelloList.jsx';
 import Header from './components/Header/Header.jsx';
 import { connect } from 'react-redux';
+import ButtonAction from './components/ButtonAction/ButtonAction';
 
 
-class App extends Component{
-  render() {  
-    const {lists} = this.props;
+const App = (props) => {   
+    const {lists} = props;
     return (
       <div>
         <div className='cabecera'>
@@ -17,11 +17,12 @@ class App extends Component{
           {lists.map(list => (
           <TrelloList title= {list.title} cards = {list.cards} key={list.id}/>
           ))}
+          <ButtonAction list/>
         </div>
       </div>
     );
   }
-}
+
 
 const mapStateToProps = state => ({
   lists: state.lists

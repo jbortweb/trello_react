@@ -1,0 +1,80 @@
+@import '../../colors.scss';
+
+.textAdd {
+    display: flex;
+    margin: 1em 1em 1em 0.5em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.plusTarea {
+    width: 100%;
+    font-size: 1em;
+    padding: 0.5em 0.5em;
+    background-color: $Ligthest;
+    color: #fff;
+    border: none;
+    margin-right: 1em;
+    border-radius: 5px;
+}
+
+.plusTarjeta {
+    opacity: 0.5;
+    background-color:#a3ab786b;
+    padding: 0 0.5em;
+    padding-top: 5px;
+    width: 272px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.container-area{
+    overflow: visible;
+    padding: 6px 8px 2px;
+
+    .tareaAreaText {
+        width: 100%;
+        min-height: 60px;
+        min-width: 272px;
+        resize: none;
+        overflow: hidden;
+        outline: none;
+        border:none;
+    }
+
+    .tarjetaAreaText {
+        margin-top: 20px;
+        width: 100%;
+        min-height: 60px;
+        min-width: 272px;
+        resize: none;
+        overflow: hidden;
+        outline: none;
+        border:none;
+        box-shadow: 0px 1px $Shadow;
+        border-radius: 5px;
+        min-height: 40px;
+    }
+}
+.container-button{
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+
+    .buttonAdd {
+        background-color: #5aac44;
+        color: #fff;
+        margin-right: 50px;
+    }
+    .buttonAdd:hover {
+        background-color: $Ligthest;
+        color: $Dark;
+    }
+    .closeIcon {
+        font-size: 30px;
+        margin-top: 5px;
+        margin-left: -30px;
+        vertical-align: middle;
+    }
+}
