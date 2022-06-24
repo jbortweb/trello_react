@@ -1,10 +1,15 @@
 @import '../../colors.scss';
 
-.textAdd {
-    display: flex;
-    margin: 1em 1em 1em 0.5em;
+.container-button {
     width: 100%;
-    cursor: pointer;
+    height: 60px;
+    
+    .textAdd {
+        display: flex;
+        margin: 1em 1em 1em 0.5em;
+        width: 100%;
+        cursor: pointer;
+    }
 }
 
 .plusTarea {

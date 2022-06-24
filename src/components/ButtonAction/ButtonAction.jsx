@@ -2,7 +2,10 @@ import React from 'react'
 import Textarea from 'react-textarea-autosize';
 import './ButtonAction.scss';
 import Button from '@mui/material/Button';
-import Icon from '@mui/icons-material/Close'
+import Icon from '@mui/icons-material/Close';
+import {addList, addCard} from '../../services/redux/action.js';
+import {connect} from 'react-redux';
+
 
 class ButtonAction extends React.Component {
 
@@ -28,6 +31,30 @@ class ButtonAction extends React.Component {
         })
     }
 
+    handleAddList = () => {
+        const {dispatch} = this.props;
+        const {text} = this.state;
+
+        if (text) {
+            this.setState ({
+                text: ''
+            })
+            dispatch(addList(text));
+        }
+    }
+
+    handleAddCard = () => {
+        const {dispatch, listID} = this.props;
+        const {text} = this.state;
+
+        if (text) {
+            this.setState ({
+                text: ''
+            })
+            dispatch(addCard(listID, text));
+        }
+    }
+
 
     rendAddButton =() =>{
         const {list} = this.props;
@@ -35,13 +62,15 @@ class ButtonAction extends React.Component {
         const plusButton = list ? 'plusTarjeta' : 'plusTarea';
 
         return (
-            <div 
-            className='textAdd'
-            onClick={this.openForm}
-            >
-                <p className={plusButton}>
-                    {textButton}
-                </p>
+            <div className='container-button'>
+                <div 
+                className='textAdd'
+                onClick={this.openForm}
+                >
+                    <p className={plusButton}>
+                        {textButton}
+                    </p>
+                </div>
             </div>
         )
     }
@@ -53,7 +82,7 @@ class ButtonAction extends React.Component {
 
         return (
             <div>
-                <div className='container-area'>                
+                <div className='container-area'>               
                     <Textarea
                     className={addTextArea}
                     placeholder =  {
@@ -67,8 +96,8 @@ class ButtonAction extends React.Component {
                 </div>
                 <div className='container-button'>
                     <Button
+                    onMouseDown = {list ? this.handleAddList : this.handleAddCard}
                     className='buttonAdd'
-                    variant='contained'
                     >
                         {list ? 'Añadir tarjeta' : 'Añadir Tarea'}
                     </Button>
@@ -87,4 +116,4 @@ class ButtonAction extends React.Component {
     }
 }
 
-export default ButtonAction;
+export default connect()(ButtonAction);

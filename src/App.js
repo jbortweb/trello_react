@@ -15,7 +15,7 @@ const App = (props) => {
         </div>
           <div className='panel'>
           {lists.map(list => (
-          <TrelloList title= {list.title} cards = {list.cards} key={list.id}/>
+          <TrelloList listID= {list.id} title= {list.title} cards = {list.cards} key={list.id}/>
           ))}
           <ButtonAction list/>
         </div>

@@ -1,3 +1,5 @@
+let listID = 2;
+let cardID = 2;
 const initialState = [
     {
         title: 'Añada un titulo',
@@ -9,7 +11,7 @@ const initialState = [
             },
             {
                 id: 1,
-                text: 'Añada una tarea id1'
+                text: 'Añada una tarea id0'
             }
         ]
     },
@@ -23,7 +25,7 @@ const initialState = [
             },
             {
                 id: 1,
-                text: 'Añada una tarea id2'
+                text: 'Añada una tarea id1'
             }
         ]
     }
@@ -32,7 +34,41 @@ const initialState = [
 const reducer = (state = initialState, action) => {
 
     switch(action.type){
-       
+
+        case 'ADD_LIST' :
+            const newList = {
+                title: action.payload,
+                cards: [],
+                id: listID
+            };
+            listID += 1;
+            return [
+                ...state,
+                    newList
+            ];
+
+        case 'ADD_CARD' :
+            const newCard = {
+                text: action.payload.text,
+                id: cardID
+            };
+            cardID += 1;
+
+            const newState = state.map(list => {
+                if(list.id === action.payload.listID) {
+                    return {
+                        ...list,
+                        cards: [
+                            ...list.cards,
+                            newCard
+                        ]
+                    };
+                }else {
+                    return list;
+                }
+            });
+            return newState;
+
         default: 
             return state;
         
