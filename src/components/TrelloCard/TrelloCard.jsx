@@ -7,6 +7,7 @@ const TrelloCard = ({text, id, index}) => {
     <Draggable draggableId={String(id)} index={index}>
       {provided => (
         <div
+          className='container-carta'
           ref= {provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}

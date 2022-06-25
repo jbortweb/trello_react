@@ -14,7 +14,7 @@
 
 .plusTarea {
     width: 100%;
-    font-size: 1em;
+    font-size: 1.1em;
     padding: 0.5em 0.5em;
     background-color: $Ligthest;
     color: #fff;
@@ -23,15 +23,28 @@
     border-radius: 5px;
 }
 
+.plusTarea:hover {
+    background-color: #a3ab786b;
+    color:$Dark;
+}
+
 .plusTarjeta {
-    opacity: 0.5;
+    color: #000;
+    opacity: 0.6;
     background-color:#a3ab786b;
     padding: 0 0.5em;
     padding-top: 5px;
+    margin-top: 8px;
     width: 272px;
     height: 30px;
     font-size: 18px;
     border-radius: 5px;
+}
+
+.plusTarjeta:hover{
+    opacity: 1;
+    background-color: $Ligthest;
+    color: #fff;
 }
 
 .container-area{
