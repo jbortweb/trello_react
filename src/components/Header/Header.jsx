@@ -1,17 +1,13 @@
 import React from "react";
 
-
-import './Header.scss';
-
+import "./Header.scss";
 
 const Header = () => {
-    return (
-        <header>
-            <div className="cabecera">
-                <h1>Trello-Clon por Jbortweb</h1>
-            </div>
-        </header>
-    )
+  return (
+      <div className="cabecera">
+        <h1>Trello-Clon por Jbortweb</h1>
+      </div>
+  );
 };
 
 export default Header;

@@ -1,6 +1,9 @@
 @import '../../colors.scss';
 
 .cabecera {
+    position: fixed;
+    margin:0;
+    width: 100%;    
     background: radial-gradient(circle, rgba(16,69,79,1) 0%, rgba(129,130,116,1) 35%, rgba(163,171,120,1) 100%);
     padding: 1em;
     text-align: center;
