@@ -1,35 +1,7 @@
-let listID = 2;
-let cardID = 4;
-const initialState = [
-  {
-    title: "Añada un titulo",
-    id: `list-${0}`,
-    cards: [
-      {
-        id: `card-${0}`,
-        text: "Añada una tarea",
-      },
-      {
-        id: `card-${1}`,
-        text: "Añada una tarea id0",
-      },
-    ],
-  },
-  {
-    title: "Añada un nuevo titulo",
-    id: `list-${1}`,
-    cards: [
-      {
-        id: `card-${2}`,
-        text: "Añada una tarea",
-      },
-      {
-        id: `card-${3}`,
-        text: "Añada una tarea id1",
-      },
-    ],
-  },
-];
+let listID = 0;
+let cardID = 0;
+const initialState = []
+
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -62,13 +34,22 @@ const reducer = (state = initialState, action) => {
       return newState;
     }
 
+    case 'DELETE_CARD': {
+
+      const { id } = action.payload;
+
+      const cards = state;
+      const newCards = cards.filter(cardID => cardID !== id);
+
+      return { ...state, cards: { ...state, cards: newCards } };
+    }
+
     case "DRAGG_HAPPENED": {
       const {
         droppableIdStart,
         droppableIdEnd,
         droppableIndexStart,
         droppableIndexEnd,
-        draggableId,
         type
       } = action.payload;
 
@@ -88,7 +69,6 @@ const reducer = (state = initialState, action) => {
         const list = state.find((list) => droppableIdStart === list.id);
         const card = list.cards.splice(droppableIndexStart, 1);
         list.cards.splice(droppableIndexEnd, 0, ...card);
-        return newState;
       }
 
       //Arrastre en otra lista
@@ -97,8 +77,8 @@ const reducer = (state = initialState, action) => {
         const card = listStart.cards.splice(droppableIndexStart, 1);
         const listEnd = state.find((list) => droppableIdEnd === list.id);
         listEnd.cards.splice(droppableIndexEnd, 0, ...card);
-        return newState;
-      }      
+      }
+      return newState;   
     }
     
     default:
