@@ -1,6 +1,20 @@
-let listID = 0;
-let cardID = 0;
-const initialState = []
+let listID = 1;
+let cardID = 1;
+const initialState = {
+  list: [
+  {
+    title: "Añada un titulo",
+    id: `list-${0}`,
+    cards: [
+      {
+        id: `card-${0}`,
+        text: "Añada una tarea",
+      },
+      
+    ],
+  }
+]
+};
 
 
 const reducer = (state = initialState, action) => {
@@ -39,7 +53,7 @@ const reducer = (state = initialState, action) => {
       const { id } = action.payload;
 
       const cards = state;
-      const newCards = cards.filter(cardID => cardID !== id);
+      const newCards = cards.id.filter(cardID => cardID !== id);
 
       return { ...state, cards: { ...state, cards: newCards } };
     }

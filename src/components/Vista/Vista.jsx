@@ -8,7 +8,6 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { sort } from "../../services/redux/action";
 
 const Vista = (props) => {
-    const { lists } = props.lists;
 
     //Funcion de drop and drag
 
@@ -45,7 +44,7 @@ const Vista = (props) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {lists.map((list, index) => (
+                {list.map((list, index) => (
                   <TrelloList
                     listID={list.id}
                     title={list.title}
