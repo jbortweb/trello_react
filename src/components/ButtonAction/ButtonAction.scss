@@ -31,9 +31,9 @@
 }
 
 .plusTarjeta {
-    color: #000;
+    color: #fff;
     opacity: 0.6;
-    background-color:#a3ab786b;
+    background-color:$Solid;
     padding: 0 0.5em;
     padding-top: 5px;
     margin-top: 8px;
@@ -48,8 +48,8 @@
 
 .plusTarjeta:hover{
     opacity: 1;
-    background-color: $Ligthest;
-    color: #fff;
+    background-color: #a3ab786b;
+    color: #000;
 }
 
 .container-area{

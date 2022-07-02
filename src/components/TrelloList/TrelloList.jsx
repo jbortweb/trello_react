@@ -3,6 +3,9 @@ import "./TrelloList.scss";
 import TrelloCard from "../TrelloCard/TrelloCard.jsx";
 import ButtonAction from "../ButtonAction/ButtonAction";
 import { Draggable, Droppable } from "react-beautiful-dnd";
+import { connect } from "react-redux";
+
+    //Creamos la vista de la lista y la funcionalidad para arrastrarla
 
 const TrelloList = ({ title, cards, listID, index }) => {
   return (
@@ -23,12 +26,13 @@ const TrelloList = ({ title, cards, listID, index }) => {
                   <div>
                     {cards.map((card, index) => (
                       <TrelloCard
-                        text={card.text}
-                        key={card.id}
-                        index={index}
-                        id={card.id}
-                      />
-                    ))}
+                       text={card.text}
+                       key={card.id}
+                       index={index}
+                       id={card.id}
+                       listID = {listID}
+                     />
+                     ))}
                     {provided.placeholder}
                     <ButtonAction listID={listID} />
                   </div>
@@ -42,4 +46,5 @@ const TrelloList = ({ title, cards, listID, index }) => {
   );
 };
 
-export default TrelloList;
+
+  export default connect()(TrelloList);

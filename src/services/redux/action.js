@@ -11,7 +11,12 @@ export const addCard = (listID, text) => {
     payload: { text, listID },
   };
 };
-
+export const deleteCardAction = (id,listID) => {
+return {
+    type: 'DELETE_CARD',
+    payload: {id, listID}
+};
+}
 export const sort = (
   droppableIdStart,
   droppableIdEnd,
