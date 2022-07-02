@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import './Vista.scss';
 import TrelloList from "../../components/TrelloList/TrelloList.jsx";
 import Header from "../../components/Header/Header.jsx";
@@ -8,21 +7,11 @@ import ButtonAction from "../../components/ButtonAction/ButtonAction";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { sort } from "../../services/redux/action";
 
-const Vista = (props) => {
-
     //Funcion de drop and drag
-=======
-import TrelloList from "../TrelloList/TrelloList.jsx";
-import Header from "../Header/Header.jsx";
-import { connect } from "react-redux";
-import ButtonAction from "../ButtonAction/ButtonAction";
-import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { sort } from "../../services/redux/action";
-import './Vista.scss';
 
 const Vista = (props) => {
     const { lists } = props;
->>>>>>> master
+
 
     const onDragEnd = (result) => {
       const { destination, source, draggableId, type } = result;
@@ -41,19 +30,13 @@ const Vista = (props) => {
         )
       );
     };
-<<<<<<< HEAD
 
     // Generamos la vista de la cabecera y de las listas que vayamos añadiendo
   
     return (
       <DragDropContext onDragEnd={onDragEnd}>
         <div className='App'>
-=======
-  
-    return (
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div>
->>>>>>> master
+
           <div>
             <Header />
           </div>
@@ -64,11 +47,8 @@ const Vista = (props) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-<<<<<<< HEAD
-                {list.map((list, index) => (
-=======
                 {lists.map((list, index) => (
->>>>>>> master
+
                   <TrelloList
                     listID={list.id}
                     title={list.title}
@@ -89,15 +69,8 @@ const Vista = (props) => {
   
   const mapStateToProps = (state) => ({
     lists: state.lists,
-<<<<<<< HEAD
-    cards:state.cards
+    cards: state.cards
   });
   
 
 export default connect(mapStateToProps)(Vista)
-=======
-  });
-  
-  export default connect(mapStateToProps)(Vista);
-  
->>>>>>> master
