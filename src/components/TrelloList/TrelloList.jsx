@@ -45,6 +45,4 @@ const TrelloList = ({ title, cards, listID, index }) => {
     </Draggable>
   );
 };
-
-
   export default connect()(TrelloList);

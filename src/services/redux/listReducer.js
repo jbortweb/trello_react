@@ -2,9 +2,10 @@
 let listID = 0;
 let cardID = 0;
 const initialState = [
+  
 ];
 
-const reducer = (state = initialState, action) => {
+const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_LIST":
       const newList = {
@@ -37,12 +38,12 @@ const reducer = (state = initialState, action) => {
 
     case 'DELETE_CARD': {
 
-      const { id } = action.payload;
+      const { listID, id } = action.payload;
 
-      const cards = state;
-      const newCards = cards.id.filter(cardID => cardID !== id);
+      const list = state[listID];
+      const newCards = list.cards.filter(cardID => cardID !== id);
 
-      return { ...state, cards: { ...state, cards: newCards } };
+      return { ...state, [listID]: { ...list, cards: newCards } };
     }
 
     case "DRAGG_HAPPENED": {
@@ -86,4 +87,4 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
-export default reducer;
+export default listReducer;

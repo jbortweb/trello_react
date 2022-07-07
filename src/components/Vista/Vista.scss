@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
-    overflow-y: auto;
+}
+.panel {
+    display: flex;
 }
 
