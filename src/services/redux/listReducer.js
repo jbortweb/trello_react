@@ -1,21 +1,8 @@
-let listID = 1;
-let cardID = 1;
-const initialState = {
-  list: [
-  {
-    title: "Añada un titulo",
-    id: `list-${0}`,
-    cards: [
-      {
-        id: `card-${0}`,
-        text: "Añada una tarea",
-      },
-      
-    ],
-  }
-]
-};
 
+let listID = 0;
+let cardID = 0;
+const initialState = [
+];
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

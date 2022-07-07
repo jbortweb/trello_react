@@ -67,10 +67,14 @@ const Vista = (props) => {
     );
   };
   
-  const mapStateToProps = (state) => ({
+  const mapStateToProps = state => ({
     lists: state.lists,
     cards: state.cards
   });
-  
 
-export default connect(mapStateToProps)(Vista)
+  const connected = connect(
+    mapStateToProps
+  )(Vista)  
+
+  export default connected;
+  
