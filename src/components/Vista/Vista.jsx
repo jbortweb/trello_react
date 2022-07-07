@@ -60,9 +60,13 @@ const Vista = (props) => {
     );
   };
   
-  const mapStateToProps = (state) => ({
+  const mapStateToProps = state => ({
     lists: state.lists,
   });
+
+  const connected = connect(
+    mapStateToProps
+  )(Vista)
   
-  export default connect(mapStateToProps)(Vista);
+  export default connected;
   

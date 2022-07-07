@@ -1,34 +1,6 @@
-let listID = 2;
-let cardID = 4;
+let listID = 0;
+let cardID = 0;
 const initialState = [
-  {
-    title: "Añada un titulo",
-    id: `list-${0}`,
-    cards: [
-      {
-        id: `card-${0}`,
-        text: "Añada una tarea",
-      },
-      {
-        id: `card-${1}`,
-        text: "Añada una tarea id0",
-      },
-    ],
-  },
-  {
-    title: "Añada un nuevo titulo",
-    id: `list-${1}`,
-    cards: [
-      {
-        id: `card-${2}`,
-        text: "Añada una tarea",
-      },
-      {
-        id: `card-${3}`,
-        text: "Añada una tarea id1",
-      },
-    ],
-  },
 ];
 
 const reducer = (state = initialState, action) => {
@@ -68,7 +40,6 @@ const reducer = (state = initialState, action) => {
         droppableIdEnd,
         droppableIndexStart,
         droppableIndexEnd,
-        draggableId,
         type
       } = action.payload;
 
