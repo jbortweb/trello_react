@@ -16,5 +16,23 @@
         word-wrap: break-word;
     
     }
+
+    .container-edit{
+        width: 30px;
+            
+        .delete-iconCard {
+            margin-top: 7px;
+            font-size: 18px;
+            cursor: pointer;
+            border-style: none;
+            margin-left: 5px;
+        }
+        .edit-iconCard {
+            margin-left: 5px;
+            margin-top: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    }
 }
 
