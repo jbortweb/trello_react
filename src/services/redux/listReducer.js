@@ -35,16 +35,17 @@ const listReducer = (state = initialState, action) => {
       });
       return newState;
     }
-
     case 'DELETE_CARD': {
 
       const { listID, id } = action.payload;
-
-      const list = state[listID];
-      const newCards = list.cards.filter(cardID => cardID !== id);
-
-      return { ...state, [listID]: { ...list, cards: newCards } };
+      return state.map(({...x}) => {
+        if(x.id === listID){
+          x.cards = x.cards.filter(y => y.id !== id);
+        }
+        return x;
+      })
     }
+   
 
     case "DRAGG_HAPPENED": {
       const {

@@ -24,7 +24,7 @@ const TrelloCard = ({ text, id, index, listID, dispatch }) => {
             <p className="cartascss">
             {text}
             </p>
-            <button onMouseDown={() => deleteCard()}>
+            <button onMouseDown={(deleteCard)}>
               ❌
             </button>
           </div>
