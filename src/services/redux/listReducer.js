@@ -2,6 +2,20 @@
 let listID = 0;
 let cardID = 0;
 const initialState = [
+  // {
+  //   title: 'lista demo 1',
+  //   id: 1,
+  //   cards: [
+  //       {
+  //           id: 1,
+  //           text: 'Lista tarea1'
+  //       },
+  //       {
+  //           id: 2,
+  //           text: 'lista tarea2'
+  //       }
+  //   ]
+  // },
   
 ];
 
@@ -45,7 +59,21 @@ const listReducer = (state = initialState, action) => {
         return x;
       })
     }
-   
+    case 'EDIT_CARD': {
+      const { id, listID, newText} = action.payload;
+      console.log(id)
+        return state.map((list) => {
+          if(list.id === listID) {
+            return list.cards.map((card) =>{
+              if(card.id === id){
+                card.text = newText;
+                console.log(card);
+              }
+              return card
+            })
+          }
+        })
+    }
 
     case "DRAGG_HAPPENED": {
       const {
