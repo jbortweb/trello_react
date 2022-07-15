@@ -80,6 +80,15 @@ const listReducer = (state = initialState, action) => {
         })
         return [...state ,newEdit]          
     }
+    case "DELETE_LIST": {
+      
+      return state.map(({...list}) => {
+        if(list.id === listID){
+          list.filter(listID !== action.payload);
+        }
+        return list;
+      })
+    }
 
     case "DRAGG_HAPPENED": {
       const {
