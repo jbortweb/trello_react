@@ -52,27 +52,33 @@ const listReducer = (state = initialState, action) => {
     case 'DELETE_CARD': {
 
       const { listID, id } = action.payload;
-      return state.map(({...x}) => {
-        if(x.id === listID){
-          x.cards = x.cards.filter(y => y.id !== id);
+      return state.map(({...list}) => {
+        if(list.id === listID){
+          list.cards = list.cards.filter(card => card.id !== id);
         }
-        return x;
+        return list;
       })
     }
-    case 'EDIT_CARD': {
+    case 'EDIT_CARD': {      
       const { id, listID, newText} = action.payload;
       console.log(id)
-        return state.map((list) => {
+        const newEdit = 
+        state.map((list) => {
           if(list.id === listID) {
-            return list.cards.map((card) =>{
+            return list.cards.map(({...card}) =>{
               if(card.id === id){
                 card.text = newText;
                 console.log(card);
+                return card
+              }else{
+                return list
               }
-              return card
             })
+          }else{
+            return list
           }
         })
+        return [...state ,newEdit]          
     }
 
     case "DRAGG_HAPPENED": {

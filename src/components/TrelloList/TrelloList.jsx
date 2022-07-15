@@ -24,7 +24,7 @@ const TrelloList = ({ title, cards, listID, index }) => {
                 <div className="container">
                   <h4 className="tarjeta_titulo">{title}</h4>
                   <div>
-                    {cards.map((card, index) => (
+                  {React.Children.toArray(cards.map((card, index) => (
                       <TrelloCard
                        text={card.text}
                        key={card.id}
@@ -32,7 +32,7 @@ const TrelloList = ({ title, cards, listID, index }) => {
                        id={card.id}
                        listID = {listID}
                      />
-                     ))}
+                     )))}
                     {provided.placeholder}
                     <ButtonAction listID={listID} />
                   </div>

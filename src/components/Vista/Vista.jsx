@@ -47,7 +47,7 @@ const Vista = (props) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {lists.map((list, index) => (
+                {React.Children.toArray(lists.map((list, index) => (
 
                   <TrelloList
                     listID={list.id}
@@ -56,7 +56,7 @@ const Vista = (props) => {
                     key={list.id}
                     index={index}
                   />
-                ))}
+                )))}
                 {provided.placeholder}
                 <ButtonAction list />              
               </div>
