@@ -61,18 +61,18 @@ const listReducer = (state = initialState, action) => {
     }
     case 'EDIT_CARD': {
       const { id, listID, newText} = action.payload;
-      console.log(id)
-        return state.map((list) => {
-          if(list.id === listID) {
-            return list.cards.map((card) =>{
-              if(card.id === id){
-                card.text = newText;
-                console.log(card);
-              }
-              return card
-            })
-          }
-        })
+      return state.map(({...list}) => {
+         if(list.id === listID) {
+             const newCards = list.cards.map(({...card}) =>{
+                 if(card.id === id){
+                    card.text = newText;
+                 }
+                 return card
+             })
+             list.cards = newCards;
+        }
+          return list;
+      })
     }
 
     case "DRAGG_HAPPENED": {

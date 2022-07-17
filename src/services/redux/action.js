@@ -19,10 +19,10 @@ return {
 };
 }
 
-export const editCardAction = (id, ListID, newText) => {
+export const editCardAction = (id, listID, newText) => {
   return {
     type: 'EDIT_CARD',
-    payload : {id, ListID, newText}
+    payload : {id, listID, newText}
   }
 }
 
