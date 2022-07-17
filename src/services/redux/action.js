@@ -32,10 +32,10 @@ export const deleteListAction = (listID) => {
       payload: {listID}
   };
   }
-  export const editListAction = (listID, newText) => {
+  export const editListAction = (listID, newTitle) => {
     return {
       type: 'EDIT_LIST',
-      payload : {listID, newText}
+      payload : {listID, newTitle}
     }
   }
 

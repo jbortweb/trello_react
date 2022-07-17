@@ -18,8 +18,9 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
   const [onTextEdit, setOnTextEdit] = useState(title)
 
  
-  const deleteCard = (e)=> {
+  const deleteList = (e)=> {
     dispatch(deleteListAction(listID));
+    console.log (listID)
   };
   
   const handleChangeEdit = (e) => {
@@ -34,21 +35,22 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
 
   const editList = () => {
     return(
+      
       <div className="container-area">
-      <textarea
-        className="listAreaText"
-        text = {onTextEdit}
-        placeholder= "Ponga el título de su lista"
-        autoFocus
-        onChange={handleChangeEdit}
-      >
+        <textarea
+          className="listAreaText"
+          text = {onTextEdit}
+          placeholder= "Ponga el título de su lista"
+          autoFocus
+          onChange={handleChangeEdit}
+        >
         </textarea>
-      <button
-        className="edit-buttonList"
-        onClick= {saveEdit}
-      > Guardar
-      </button>          
-    </div>
+        <button
+          className="edit-buttonList"
+          onClick= {saveEdit}
+        > Guardar
+        </button>          
+      </div>
     )
   }
   const onlyList = () => {
@@ -73,7 +75,7 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
                       <div className="container-edit">
                         <button
                           className="delete-iconList" 
-                          onMouseDown={(deleteCard)}
+                          onMouseDown={(deleteList)}
                           title = 'Delete'>
                           X
                         </button>
