@@ -8,11 +8,11 @@ const initialState = [
   //   cards: [
   //       {
   //           id: 1,
-  //           text: 'Lista tarea1'
+  //           text: 'Carta tarea1'
   //       },
   //       {
   //           id: 2,
-  //           text: 'lista tarea2'
+  //           text: 'Carta tarea2'
   //       }
   //   ]
   // },
@@ -52,11 +52,11 @@ const listReducer = (state = initialState, action) => {
     case 'DELETE_CARD': {
 
       const { listID, id } = action.payload;
-      return state.map(({...x}) => {
-        if(x.id === listID){
-          x.cards = x.cards.filter(y => y.id !== id);
+      return state.map(({...list}) => {
+        if(list.id === listID){
+          list.cards = list.cards.filter(card => card.id !== id);
         }
-        return x;
+        return list;
       })
     }
     case 'EDIT_CARD': {
@@ -70,9 +70,19 @@ const listReducer = (state = initialState, action) => {
                  return card
              })
              list.cards = newCards;
-        }
-          return list;
-      })
+
+         }
+         return list;
+     })
+    }    
+   
+    case "DELETE_LIST": {
+      
+      const {listID} = action.payload;
+      const listDelete = state.filter(list => list.id !== listID);       
+      
+      return listDelete
+
     }
 
     case "DRAGG_HAPPENED": {

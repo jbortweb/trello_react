@@ -23,8 +23,8 @@ const TrelloCard = ({ text, id, index, listID, dispatch }) => {
     setOnTextEdit(e.target.value)
   };
 
-  const saveEdit = (e) => {
-    e.preventDefault();
+  const saveEdit = () => {
+    
     dispatch(editCardAction(id, listID, onTextEdit));
     setOnEdit(false);
   };

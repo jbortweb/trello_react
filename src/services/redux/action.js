@@ -26,6 +26,19 @@ export const editCardAction = (id, listID, newText) => {
   }
 }
 
+export const deleteListAction = (listID) => {
+  return {
+      type: 'DELETE_LIST',
+      payload: {listID}
+  };
+  }
+  export const editListAction = (listID, newTitle) => {
+    return {
+      type: 'EDIT_LIST',
+      payload : {listID, newTitle}
+    }
+  }
+
 export const sort = (
   droppableIdStart,
   droppableIdEnd,
