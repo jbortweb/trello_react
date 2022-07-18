@@ -36,19 +36,23 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
     return(
       
       <div className="container-area">
-        <textarea
-          className="listAreaText"
-          text = {onTextEdit}
-          placeholder= "Ponga el título de su lista"
-          autoFocus
-          onChange={handleChangeEdit}
-        >
-        </textarea>
-        <button
-          className="edit-buttonList"
-          onClick= {saveEdit}
-        > Guardar
-        </button>          
+        <div>
+          <textarea
+            className="listAreaText"
+            text = {onTextEdit}
+            placeholder= "Ponga el título de su lista"
+            autoFocus
+            onChange={handleChangeEdit}
+          >
+          </textarea>
+        </div>
+        <div>
+          <button
+            className="edit-buttonList"
+            onClick= {saveEdit}
+            > Guardar
+          </button>
+        </div>          
       </div>
     )
   }
@@ -64,39 +68,45 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
             <Droppable droppableId={String(listID)}>
               {(provided) => (
                 <div 
-                ref={provided.innerRef} 
-                {...provided.droppableProps}>
-                  <div className="container">
-                    <div className="container-titulo">
-                      <h4 className="tarjeta_titulo">
-                        {title}
-                      </h4>
-                      <div className="container-edit">
-                        <button
-                          className="delete-iconList" 
-                          onMouseDown={(deleteList)}
-                          title = 'Delete'>
-                          X
-                        </button>
-                        <EditIcon
-                          className="edit-iconList"
-                          onClick= {() => setOnEdit(true)}/>
+                  ref={provided.innerRef} 
+                  {...provided.droppableProps}>
+                        <div className="container">
+                    <div> 
+                      {onEdit ? (
+                        editList()
+                        ) : (
+                          <div className="container-titulo">
+                            <h4 className="tarjeta_titulo">
+                              {onTextEdit}
+                            </h4>
+                            <div className="container-edit">
+                              <button
+                                className="delete-iconList" 
+                                onMouseDown={(deleteList)}
+                                title = 'Delete'>
+                                X
+                              </button>
+                              <EditIcon
+                                className="edit-iconList"
+                                onClick= {() => setOnEdit(true)}/>
+                            </div>
+                          </div>
+                      )}
+                        <div>
+                    </div>
+                      {React.Children.toArray(cards.map((card, index) => (
+                          <TrelloCard
+                          text={card.text}
+                          key={card.id}
+                          index={index}
+                          id={card.id}
+                          listID = {listID}
+                        />
+                        )))}
+                        {provided.placeholder}
+                        <ButtonAction listID={listID} />
                       </div>
                     </div>
-                  <div>
-                    {React.Children.toArray(cards.map((card, index) => (
-                        <TrelloCard
-                        text={card.text}
-                        key={card.id}
-                        index={index}
-                        id={card.id}
-                        listID = {listID}
-                      />
-                      )))}
-                      {provided.placeholder}
-                      <ButtonAction listID={listID} />
-                    </div>
-                  </div>
                 </div>
               )}
             </Droppable>
@@ -106,7 +116,7 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
     );
   }
   return (
-    onEdit ? editList() : onlyList()
+    onlyList()
   );
 };
   export default connect()(TrelloList);
