@@ -20,7 +20,6 @@ const TrelloList = ({ title, cards, listID, index, dispatch }) => {
  
   const deleteList = (e)=> {
     dispatch(deleteListAction(listID));
-    console.log (listID)
   };
   
   const handleChangeEdit = (e) => {
